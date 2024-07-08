@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>RIT Transport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {background-image: url({% static 'images/background.jpg' %});
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+    </style>
+</head>
+<body>
+ 
+<!-- End vertical navbar -->
+{% block maincontent %}
+<div class="rit"></div>
+<img src="{% static 'images/rit.jpg' %}" alt="">
+<!-- Page content holder -->
+<div class="page-content p-5 " id="content">
+  <!-- Toggle button -->
+
+  <div class="row ">
+    <div class="container">
+      <header>Registration</header>
+
+      <form method="POST" action="{% url 'insert_grade' %}" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form first">
+          <div class="details personal">
+            <span class="title">CGPA Tracking</span>
+            <div class="fields">
+              <div class="input-field">
+                <label>Reg No</label>
+                <input type="number" id="reg_no" name="reg_no" value="{{ reg_value.reg_no }}" placeholder="Enter Reg No" readonly>
+              </div>
+
+              <div class="input-field">
+                <label>Batch</label>
+                <input type="text" name="batch" value="{{ reg_value.batch }}" placeholder="Enter Batch eg:2021-25" required>
+              </div>
+
+              <div class="input-field">
+                <label>Name</label>
+                <input type="text" id="fromdate" name="student_name" value="{{ reg_value.student_name }}" placeholder="Enter Name" required>
+              </div>
+
+              <div class="input-field">
+                <label>Department</label>
+                <select name="department" class="form-control" required>
+                  <option value="" disabled>Select</option>
+                  <option value="B.TECH AD" {% if reg_value.department == "B.TECH AD" %}selected{% endif %}>AD-ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</option>
+                  <option value="B.E CIVIL" {% if reg_value.department == "B.E CIVIL" %}selected{% endif %}>CE-CIVIL ENGINEERING</option>
+                  <option value="B.TECH CSBS" {% if reg_value.department == "B.TECH CSBS" %}selected{% endif %}>CB-COMPUTER SCIENCE AND BUSINESS SYSTEM</option>
+                  <option value="B.E CSE" {% if reg_value.department == "B.E CSE" %}selected{% endif %}>CS-COMPUTER SCIENCE AND ENGINEERING</option>
+                  <option value="B.E EEE" {% if reg_value.department == "B.E EEE" %}selected{% endif %}>EE-ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+                  <option value="B.E ECE" {% if reg_value.department == "B.E ECE" %}selected{% endif %}>EC-ELECTRONICS AND COMMUNICATION ENGINEERING</option>
+                  <option value="B.TECH IT" {% if reg_value.department == "B.TECH IT" %}selected{% endif %}>IT-INFORMATION TECHNOLOGY</option>
+                  <option value="B.E MECH" {% if reg_value.department == "B.E MECH" %}selected{% endif %}>ME-MECHANICAL ENGINEERING</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>SSLC Percentage</label>
+                <input type="text" name="sslc" id="sslc" value="{{ reg_value.sslc }}" placeholder="Enter SSLC Percentage" required>
+              </div>
+
+              <div class="input-field">
+                <label>HSC Percentage</label>
+                <input type="text" name="hsc" id="hsc" value="{{ reg_value.hsc }}" placeholder="Enter HSC Percentage" required>
+              </div>
+
+              <div class="input-field">
+                <label>No of Current Arrear</label>
+                <input type="number" name="no_of_arrear" value="{{ reg_value.no_of_arrear }}" placeholder="Enter No of Current Arrear" required>
+              </div>
+
+              <div class="input-field">
+                <label>Bag Of Log</label>
+                <select name="bag_of_log" required>
+                  <option value="" hidden>Select Yes / No</option>
+                  <option value="Yes" {% if reg_value.bag_of_log == "Yes" %}selected{% endif %}>Yes</option>
+                  <option value="No" {% if reg_value.bag_of_log == "No" %}selected{% endif %}>No</option>
+                </select>
+              </div>
+            </div>
+
+            <span class="title">Details</span>
+            
+
+            <div class="fields" id="fields-container">
+                <div class="input-field">
+                    <label>Semester 1</label>
+                    <input type="text" name="semester1" id="semester1" value="{{ reg_value.semester1 }}" placeholder="Enter semester1" required>
+                  </div>
+                  <div class="input-field">
+                    <label>Semester 2</label>
+                    <input type="text" name="semester2" id="semester2" value="{{ reg_value.semester2 }}" placeholder="Enter semester2" required>
+                  </div>
+                  <div class="input-field">
+                    <label>Semester 3</label>
+                    <input type="text" name="semester3" id="semester3" value="{{ reg_value.semester3|default:0  }}" placeholder="Enter semester3" required>
+                  </div>
+                  <div class="input-field">
+                    <label>Semester 4</label>
+                    <input type="text" name="semester4" id="semester4" value="{{ reg_value.semester4|default:0  }}" placeholder="Enter semester4" required>
+                  </div>
+                  <div class="input-field">
+                    <label>Semester 5</label>
+                    <input type="text" name="semester5" id="semester5" value="{{ reg_value.semester5|default:0 }}" placeholder="Enter semester5" required>
+                </div>
+                
+                  <div class="input-field">
+                    <label>Semester 6</label>
+                    <input type="text" name="semester6" id="semester6" value="{{ reg_value.semester6|default:0  }}" placeholder="Enter semester6" required>
+                  </div>
+                  <div class="input-field">
+                    <label>Semester 7</label>
+                    <input type="text" name="semester7" id="semester7" value="{{ reg_value.semester7|default:0  }}" placeholder="Enter semester7" required>
+                  </div>
+                  <div class="input-field">
+                    <label>Semester 8</label>
+                    <input type="text" name="semester8" id="semester8" value="{{ reg_value.semester8|default:0  }}" placeholder="Enter semester8" required>
+                  </div>
+                 
+
+            </div>
+
+            <button type="submit" class="nextBtn">
+              <span class="btnText">Submit</span>
+              <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+    // Function to generate input fields dynamically
+    function generateSemesterFields(currentSemester) {
+            const container = document.getElementById('fields-container');
+            container.innerHTML = ''; // Clear existing fields
+
+            for (let i = 1; i <= currentSemester; i++) {
+                const inputFieldDiv = document.createElement('div');
+                inputFieldDiv.classList.add('input-field');
+
+                const label = document.createElement('label');
+                label.textContent = `Semester-${i} GPA`;
+
+                const input = document.createElement('input');
+                input.type = 'float';
+                input.name = `semester${i}`;
+                input.name = `reg_value.semester${i}`;
+                input.placeholder = `Enter GPA for Semester ${i}`;
+                input.required = true;
+
+                inputFieldDiv.appendChild(label);
+                inputFieldDiv.appendChild(input);
+                container.appendChild(inputFieldDiv);
+            }
+        }
+
+        // Add event listener to the select box
+        document.getElementById('current-semester').addEventListener('change', function() {
+            const currentSemester = this.value;
+            generateSemesterFields(currentSemester);
+        });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
+<!-- End demo content -->
+
+
+
+</body>
+</html>

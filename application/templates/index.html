@@ -1,0 +1,88 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title><center>Ramco Institute of Technology</center></title>
+<body>
+    {% block header %}
+
+    <div class="rit"></div>
+    <div class="container">
+
+    <div class="heading"><center>B.E/B.TECH I YEAR & II YEAR (LATERAL ENTRY) ADMISSION FORM</center></div>
+
+    <div class="row card-row" style="margin-top: 20px;">
+        <div class=" col-md-4">
+            <a href="{% url 'post_index'  %}" class="card-link">
+                <div class="card" style="background-color: 005073;">
+                    <div class="card-body">
+                        <span>APPLICATION FORM</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 ">
+            <a href="{% url 'login'  %}"  class="card-link">
+                <div class="card" style="background-color: 005073;">
+                    <div class="card-body">
+                        <span ><center>ADMISSION LOGIN</center></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 ">
+            <a href="{% url 'pdf_check' %}"  class="card-link">
+                <div class="card" style="background-color: 005073;">
+                    <div class="card-body">
+                        <span ><center>PRINT APPLICATION FORM</center></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 ">
+            <a href="{%url 'check_form' %}"  class="card-link">
+                <div class="card" style="background-color: 005073;">
+                    <div class="card-body">
+                        <span ><center>ENQUIRY DETAILS</center></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 ">
+            <a href="{%url 'personal_form_login' %}"  class="card-link">
+                <div class="card" style="background-color: 005073;">
+                    <div class="card-body">
+                        <span ><center>ENQUIRY TOKEN LOGIN</center></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- <div class="col-md-4 ">
+            <a href="{%url 'pdf_check' %}"  class="card-link">
+                <div class="card" style="background-color: 005073;">
+                    <div class="card-body">
+                        <span ><center>PRINT APPLICATION FORM</center></span>
+                    </div>
+                </div>
+            </a>
+        </div> -->
+    </div>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+</div>
+</body>
+
+{% endblock %}

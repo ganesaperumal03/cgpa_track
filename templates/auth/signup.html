@@ -1,0 +1,106 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Ramco Institute of Technology</title>
+
+<body>
+    {% block header %}
+
+    <div class="rit"></div>
+
+    <div class="container">
+        <div class="heading"></div>
+        <form method="post" action="{% url 'signup' %}" enctype="multipart/form-data"  onsubmit="hideButton()">
+        {% csrf_token %}
+            <div class="form-all">
+                <div class="admission">
+                <span class="title"><b>ADMISSION</b></span>
+<!--            
+            <div class="PERSONALINFORMATION">
+                <span class="title"><b>I. PERSONAL INFORMATION</b></span> -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input1">Name</label>
+                        <input type="text" name="Name" id="Name" class="form-control" placeholder="Enter the name" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input2">User Name</label>
+                        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter user_name"
+                        required>                    
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input2">Department</label>
+                        <select name="Department" class="form-control"  required>
+                            <option  value="" disabled selected>Select</option>
+                                <option value="B.TECH AD">AD-ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</option>
+                                <option value="B.E CIVIL">CE-CIVIL ENGINEERING</option>
+                                <option value="B.TECH CSBS">CB-COMPUTER SCIENCE AND BUSINESS SYSTEM</option>
+                                <option value="B.E CSE">CS-COMPUTER SCIENCE AND ENGINEERING</option>
+                                <option value="B.E EEE">EE-ELECRICAL AND ELECTRONICS ENGINEERING</option>
+                                <option value="B.E ECE">EC-ELECTRONICS AND COMMUNICATION ENGINEERING</option>
+                                <option value="B.TECH IT">IT-INFORMATION TECHNOLOGY</option>
+                                <option value="B.E MECH">ME-MECHANICAL ENGINEERING</option>
+                                <option value="Transpoart">Transpoart</option>
+                                <option value="office">office</option>
+                                <option value="Hostel">Hostel</option>
+                            </select>
+
+                     </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input1">Email-ID</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email" required/>
+
+                    </div>
+                </div>
+            </div>
+         
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input1">Password</label>
+                        <input type="Password" name="Password" class="form-control" placeholder="Enter Password'" required/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="input2">Conform Password</label>
+                        <input type="Password" name="conform_Password" class="form-control" placeholder="Enter conform_Password" required/>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        </div>
+        <div class="but" style="margin-left: 850px;">
+            <button type="submit"  id="" class="btn btn-primary">Register</button>
+        </form>
+            
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% endblock %}
+
+</body>
+</html>
